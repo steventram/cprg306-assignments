@@ -5,10 +5,11 @@ export default function Item({ shoppingItem }) {
 
   return (
     <main>
-      <div>
-        <h3>{name}</h3>
-        <p>{quantity}</p>
-        <p className={listLine}>{category}</p>
+      <div className="bg-orange-100 m-2 rounded-lg">
+        <h3 className="font-bold text-lg">{name}</h3>
+        <p className="text-sm">
+          Buy {quantity} in {category}
+        </p>
       </div>
     </main>
   );
