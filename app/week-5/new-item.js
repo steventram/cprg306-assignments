@@ -54,15 +54,21 @@ export default function NewItem() {
   const handleCategoryChange = (event) => setCategory(event.target.value);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="bg-indigo-900 p-2 rounded-md">
       <div>
-        <label>item name</label>
-        <input type="text" onChange={handleNameChange} value={name} required />
+        <input
+          type="text"
+          placeholder="Item name"
+          className="rounded-md text-center w-full border-2 border-slate-400"
+          onChange={handleNameChange}
+          value={name}
+          required
+        />
       </div>
 
       <div>
         <p
-          className="pt-2 text-white text-2xl"
+          className="pt-2 text-white text-2xl text-center"
           onChange={handleQuantityChange}
           value={quantity}
         >
@@ -88,9 +94,13 @@ export default function NewItem() {
         </div>
       </div>
 
-      <div>
-        <label>produce category</label>
-        <select onChange={handleCategoryChange} value={category}>
+      <div className="flex justify-center items-center">
+        {/* <label>produce category</label> */}
+        <select
+          onChange={handleCategoryChange}
+          value={category}
+          className="text-center mb-3 rounded-md p-1 border-2 border-slate-400"
+        >
           <option selected value="produce">
             produce
           </option>
@@ -106,8 +116,10 @@ export default function NewItem() {
           <option value="other">other</option>
         </select>
       </div>
-      <div>
-        <button className="border-slate-800 border-2">Add to List</button>
+      <div className="flex justify-center items-center">
+        <button className="border-2 border-slate-400 bg-white flex justify-center align-middle rounded-md text-sm p-1 hover:bg-sky-500 active:bg-cyan-800">
+          Add to List
+        </button>
       </div>
     </form>
   );
