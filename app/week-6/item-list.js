@@ -1,92 +1,63 @@
+"use client";
+
 import Item from "./item";
+import { useState } from "react";
+import items from "./items.json";
 
 export default function ItemList() {
-  const item1 = {
-    name: "milk, 4 L 🥛",
-    quantity: 1,
-    category: "dairy",
-  };
+  const [sortBy, setSortBy] = useState("name");
 
-  const item2 = {
-    name: "bread 🍞",
-    quantity: 2,
-    category: "bakery",
-  };
+  if (sortBy == "name") items.sort((a, b) => a.name.localeCompare(b.name));
 
-  const item3 = {
-    name: "eggs, dozen 🥚",
-    quantity: 2,
-    category: "dairy",
-  };
+  if (sortBy == "category")
+    items.sort((a, b) => {
+      if (a.category < b.category) return -1;
+      if (a.category > b.category) return 1;
+      else {
+        return a.quantity - b.quantity;
+      }
+    });
 
-  const item4 = {
-    name: "bananas 🍌",
-    quantity: 6,
-    category: "produce",
-  };
-
-  const item5 = {
-    name: "broccoli 🥦",
-    quantity: 3,
-    category: "produce",
-  };
-
-  const item6 = {
-    name: "chicken breasts, 1 kg 🍗",
-    quantity: 1,
-    category: "meat",
-  };
-
-  const item7 = {
-    name: "pasta sauce 🍝",
-    quantity: 3,
-    category: "canned goods",
-  };
-
-  const item8 = {
-    name: "spaghetti, 454 g 🍝",
-    quantity: 2,
-    category: "dry goods",
-  };
-
-  const item9 = {
-    name: "toilet paper, 12 pack 🧻",
-    quantity: 1,
-    category: "household",
-  };
-
-  const item10 = {
-    name: "paper towels, 6 pack",
-    quantity: 1,
-    category: "household",
-  };
-
-  const item11 = {
-    name: "dish soap 🍽️",
-    quantity: 1,
-    category: "household",
-  };
-
-  const item12 = {
-    name: "hand soap 🧼",
-    quantity: 4,
-    category: "household",
-  };
+  const changeSortByEvent = (event) => setSortBy(event.target.value);
 
   return (
     <main>
-      <Item shoppingItem={item1} />
-      <Item shoppingItem={item2} />
-      <Item shoppingItem={item3} />
-      <Item shoppingItem={item4} />
-      <Item shoppingItem={item5} />
-      <Item shoppingItem={item6} />
-      <Item shoppingItem={item7} />
-      <Item shoppingItem={item8} />
-      <Item shoppingItem={item9} />
-      <Item shoppingItem={item10} />
-      <Item shoppingItem={item11} />
-      <Item shoppingItem={item12} />
+      <div className="flex justify-center items-center">
+        <h2>Sort By: </h2>
+        <button
+          type="button"
+          className={`border-2 border-black p-1 hover:bg-red-500 active:bg-red-700 flex-row mr-2 ${
+            sortBy == "name" ? "bg-red-700" : "bg-red-300"
+          }`}
+          onClick={changeSortByEvent}
+          value={"name"}
+        >
+          Name
+        </button>
+        <button
+          type="button"
+          className={`border-2 border-black p-1 hover:bg-red-500 active:bg-red-700 ${
+            sortBy == "category" ? "bg-red-700" : "bg-red-300"
+          }`}
+          onClick={changeSortByEvent}
+          value={"category"}
+        >
+          Category
+        </button>
+      </div>
+      {/* <Item shoppingItem={items.map((item) => item)} key={item.id} /> */}
+      <Item shoppingItem={items[0]} />
+      <Item shoppingItem={items[1]} />
+      <Item shoppingItem={items[2]} />
+      <Item shoppingItem={items[3]} />
+      <Item shoppingItem={items[4]} />
+      <Item shoppingItem={items[5]} />
+      <Item shoppingItem={items[6]} />
+      <Item shoppingItem={items[7]} />
+      <Item shoppingItem={items[8]} />
+      <Item shoppingItem={items[9]} />
+      <Item shoppingItem={items[10]} />
+      <Item shoppingItem={items[11]} />
     </main>
   );
 }
