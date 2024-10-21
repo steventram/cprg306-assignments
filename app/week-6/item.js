@@ -1,5 +1,5 @@
 export default function Item({ shoppingItem }) {
-  let { id, name, quantity, category } = shoppingItem;
+  let { name, quantity, category } = shoppingItem;
 
   let listLine = "border-b-red-600 border-b-2";
 

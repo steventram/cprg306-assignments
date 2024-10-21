@@ -45,19 +45,12 @@ export default function ItemList() {
           Category
         </button>
       </div>
-      {/* <Item shoppingItem={items.map((item) => item)} key={item.id} /> */}
-      <Item shoppingItem={items[0]} />
-      <Item shoppingItem={items[1]} />
-      <Item shoppingItem={items[2]} />
-      <Item shoppingItem={items[3]} />
-      <Item shoppingItem={items[4]} />
-      <Item shoppingItem={items[5]} />
-      <Item shoppingItem={items[6]} />
-      <Item shoppingItem={items[7]} />
-      <Item shoppingItem={items[8]} />
-      <Item shoppingItem={items[9]} />
-      <Item shoppingItem={items[10]} />
-      <Item shoppingItem={items[11]} />
+
+      <div>
+        {items.map((items) => (
+          <Item shoppingItem={items} key={items.id} />
+        ))}
+      </div>
     </main>
   );
 }
