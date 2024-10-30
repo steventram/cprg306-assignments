@@ -53,7 +53,7 @@ export default function NewItem({ onAddItem }) {
   const handleCategoryChange = (event) => setCategory(event.target.value);
 
   return (
-    <form onSubmit={handleSubmit} className="bg-indigo-900 p-2 rounded-md">
+    <form onSubmit={handleSubmit} className="bg-rose-300 p-2 rounded-md m-2">
       <div>
         <input
           type="text"
@@ -73,7 +73,7 @@ export default function NewItem({ onAddItem }) {
         >
           Quantity: {quantity}
         </p>
-        <div className="p-3 space-x-2">
+        <div className="p-3 space-x-2 flex justify-center items-center border-2 border-orange-200 m-2">
           <button
             type="button"
             onClick={decrement}
@@ -100,9 +100,7 @@ export default function NewItem({ onAddItem }) {
           value={category}
           className="text-center mb-3 rounded-md p-1 border-2 border-slate-400"
         >
-          <option selected value="produce">
-            produce
-          </option>
+          <option value="produce">produce</option>
           <option value="dairy">dairy</option>
           <option value="bakery">bakery</option>
           <option value="meat">meat</option>

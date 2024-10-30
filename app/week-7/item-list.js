@@ -45,7 +45,7 @@ export default function ItemList({ items }) {
         </button>
       </div>
 
-      <div>
+      <div className="text-center">
         {items.map((item) => (
           <Item shoppingItem={item} key={item.id} />
         ))}
