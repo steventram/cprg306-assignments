@@ -35,7 +35,7 @@ export default function SignInPage() {
           <div className="flex justify-center">
             <img src={user.photoURL} className="w-10 h-10" />
           </div>
-          <Link href="/week-9/shopping-list/">
+          <Link href="/week-10/shopping-list/">
             {/* Go to Shopping List */}
             <button
               type="button"
